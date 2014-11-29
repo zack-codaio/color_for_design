@@ -29,6 +29,8 @@
         <activity
                 android:name=".CritiqueActivity2"></activity>
         <activity android:name=".CritiqueActivityGood" android:label="Good Example"/>
+        <activity android:name=".CritiqueActivityBad"/>
+        <activity android:name=".CritiqueTest"/>
 
 
     </application>
