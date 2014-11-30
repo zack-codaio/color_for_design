@@ -1,6 +1,7 @@
 package edu.cmu.zaman.colorintent;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,7 +9,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +23,7 @@ public class CritiqueTest extends Activity {
     private ArrayList<String> questions = new ArrayList<String>();
     private int questionNum = 0;
     int correctAnswer;
+    private int correctCount = 0;
     ImageView[] buttons = new ImageView[6];
 
     @Override
@@ -96,7 +97,9 @@ public class CritiqueTest extends Activity {
         final TextView feedbackText = (TextView)findViewById(R.id.textView6);
         final TextView questionTextView = (TextView)findViewById(R.id.textView2);
 
+        //TODO add explanatory feedback text
         if(correct){ //correct feedback
+            correctCount++;
             feedbackText.setTextColor(Color.parseColor("#ff2a7e2a"));
             switch(correctAnswer){
                 case 1:
@@ -148,34 +151,16 @@ public class CritiqueTest extends Activity {
             buttons[i].setClickable(false);
         }
 
-
         final Animation in = new AlphaAnimation(0.0f, 1.0f);
         in.setDuration(500);
+
         final Animation in2 = new AlphaAnimation(0.0f, 1.0f);
         in2.setDuration(500);
 
         final Animation out = new AlphaAnimation(1.0f, 0.0f);
         out.setDuration(500);
 
-        out.setAnimationListener(new AnimationListener() {
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                feedbackText.setText("");
-                for(int i = 0; i < buttons.length; i++){
-                    buttons[i].setClickable(true);
-                }
-//                feedbackText.startAnimation(in);
-                getNewQuestion();
-                questionTextView.startAnimation(in2);
-
-
-            }
-            public void onAnimationRepeat(Animation animation){}
-            public void onAnimationStart(Animation animation){}
-        });
         in.setAnimationListener(new AnimationListener() {
-
             @Override
             public void onAnimationEnd(Animation animation) {
             //timeout for 3 seconds, then getNewQuestion()
@@ -187,17 +172,33 @@ public class CritiqueTest extends Activity {
                                 questionTextView.startAnimation(out);
                             }
                         },
-                        3000);
+                        2000);
             }
             public void onAnimationRepeat(Animation animation){}
             public void onAnimationStart(Animation animation){}
         });
 
+        out.setAnimationListener(new AnimationListener() {
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                feedbackText.setText("");
+                if(correctCount >= 6){
+                    //go to screen congratulating for completing the unit and allowing user to go back to main screen.
+                    Intent intent = new Intent(getApplicationContext(), CritiqueFinish.class);
+                    startActivity(intent);
+                }
+                else {
+                    for (int i = 0; i < buttons.length; i++) {
+                        buttons[i].setClickable(true);
+                    }
+                    getNewQuestion();
+                    questionTextView.startAnimation(in2);
+                }
+            }
+            public void onAnimationRepeat(Animation animation){}
+            public void onAnimationStart(Animation animation){}
+        });
 
         feedbackText.startAnimation(in);
-
-
-
-
     }
 }

@@ -31,6 +31,7 @@
         <activity android:name=".CritiqueActivityGood" android:label="Good Example"/>
         <activity android:name=".CritiqueActivityBad"/>
         <activity android:name=".CritiqueTest"/>
+        <activity android:name=".CritiqueFinish"/>
 
 
     </application>
