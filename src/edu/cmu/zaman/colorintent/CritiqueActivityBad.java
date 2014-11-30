@@ -8,28 +8,25 @@ import android.view.View;
 import android.view.Window;
 
 /**
- * Created by zackaman on 11/22/14.
+ * Created by zackaman on 11/29/14.
  */
-public class CritiqueActivityGood extends Activity {
+public class CritiqueActivityBad extends Activity {
     MediaPlayer mediaPlayer;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         //Remove title bar
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.example_critique_good);
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.example_critique_bad);
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_critique_good);
+        setContentView(R.layout.activity_critique_bad);
     }
 
+
     public void next(View view){
-        Intent intent = new Intent(this, CritiqueActivityBad.class);
-        startActivity(intent);
         mediaPlayer.stop();
-//        mediaPlayer.release();
+        Intent intent = new Intent(this, CritiqueTest.class);
+        startActivity(intent);
     }
 
     @Override
@@ -40,7 +37,7 @@ public class CritiqueActivityGood extends Activity {
     @Override
     public void onResume(){
         super.onResume();
-        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.example_critique_good);
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.example_critique_bad);
     }
 
 
@@ -48,9 +45,5 @@ public class CritiqueActivityGood extends Activity {
         if(mediaPlayer.isPlaying() == false){
             mediaPlayer.start();
         }
-    }
-
-    public void onMediaComplete(){
-
     }
 }
