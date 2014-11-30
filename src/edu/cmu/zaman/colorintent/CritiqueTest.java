@@ -103,22 +103,22 @@ public class CritiqueTest extends Activity {
             feedbackText.setTextColor(Color.parseColor("#ff2a7e2a"));
             switch(correctAnswer){
                 case 1:
-                    feedbackText.setText("monkey");
+                    feedbackText.setText("Correct! This is an example of specifically considering color feeling.");
                     break;
                 case 2:
-                    feedbackText.setText("balls2");
+                    feedbackText.setText("Correct! This example is missing specific feedback about color feeling.");
                     break;
                 case 3:
-                    feedbackText.setText("dicks3");
+                    feedbackText.setText("Correct! Specific information about hierarchy is critical.");
                     break;
                 case 4:
-                    feedbackText.setText("nunus4");
+                    feedbackText.setText("Correct! This needs more information about hierarchy.");
                     break;
                 case 5:
-                    feedbackText.setText("pussycat5");
+                    feedbackText.setText("Correct! It is important to be specific about your thoughts.");
                     break;
                 case 6:
-                    feedbackText.setText("vuvuzela6");
+                    feedbackText.setText("Correct! This example is lacking specificity.");
                     break;
             }
         }
@@ -126,22 +126,22 @@ public class CritiqueTest extends Activity {
             feedbackText.setTextColor(Color.parseColor("#CC2020"));
             switch(correctAnswer){
                 case 1:
-                    feedbackText.setText("Wrong! monkey");
+                    feedbackText.setText("Wrong! This is an example of specifically considering color feeling.");
                     break;
                 case 2:
-                    feedbackText.setText("Wrong! balls2");
+                    feedbackText.setText("Wrong! This example is missing specific feedback about color feeling.");
                     break;
                 case 3:
-                    feedbackText.setText("Wrong! dicks3");
+                    feedbackText.setText("Wrong! Specific information about hierarchy is critical.");
                     break;
                 case 4:
-                    feedbackText.setText("Wrong! nunus4");
+                    feedbackText.setText("Wrong! This needs more information about hierarchy.");
                     break;
                 case 5:
-                    feedbackText.setText("Wrong! pussycat5");
+                    feedbackText.setText("Wrong! It is important to be specific about your thoughts.");
                     break;
                 case 6:
-                    feedbackText.setText("Wrong! vuvuzela6");
+                    feedbackText.setText("Wrong! This example is lacking in specificity.");
                     break;
             }
         }
