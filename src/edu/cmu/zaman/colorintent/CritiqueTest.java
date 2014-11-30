@@ -1,6 +1,7 @@
 package edu.cmu.zaman.colorintent;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,7 +9,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +23,7 @@ public class CritiqueTest extends Activity {
     private ArrayList<String> questions = new ArrayList<String>();
     private int questionNum = 0;
     int correctAnswer;
+    private int correctCount = 0;
     ImageView[] buttons = new ImageView[6];
 
     @Override
@@ -96,26 +97,28 @@ public class CritiqueTest extends Activity {
         final TextView feedbackText = (TextView)findViewById(R.id.textView6);
         final TextView questionTextView = (TextView)findViewById(R.id.textView2);
 
+        //TODO add explanatory feedback text
         if(correct){ //correct feedback
+            correctCount++;
             feedbackText.setTextColor(Color.parseColor("#ff2a7e2a"));
             switch(correctAnswer){
                 case 1:
-                    feedbackText.setText("monkey");
+                    feedbackText.setText("Correct! This is an example of specifically considering color feeling.");
                     break;
                 case 2:
-                    feedbackText.setText("balls2");
+                    feedbackText.setText("Correct! This example is missing specific feedback about color feeling.");
                     break;
                 case 3:
-                    feedbackText.setText("dicks3");
+                    feedbackText.setText("Correct! Specific information about hierarchy is critical.");
                     break;
                 case 4:
-                    feedbackText.setText("nunus4");
+                    feedbackText.setText("Correct! This needs more information about hierarchy.");
                     break;
                 case 5:
-                    feedbackText.setText("pussycat5");
+                    feedbackText.setText("Correct! It is important to be specific about your thoughts.");
                     break;
                 case 6:
-                    feedbackText.setText("vuvuzela6");
+                    feedbackText.setText("Correct! This example is lacking specificity.");
                     break;
             }
         }
@@ -123,22 +126,22 @@ public class CritiqueTest extends Activity {
             feedbackText.setTextColor(Color.parseColor("#CC2020"));
             switch(correctAnswer){
                 case 1:
-                    feedbackText.setText("Wrong! monkey");
+                    feedbackText.setText("Wrong! This is an example of specifically considering color feeling.");
                     break;
                 case 2:
-                    feedbackText.setText("Wrong! balls2");
+                    feedbackText.setText("Wrong! This example is missing specific feedback about color feeling.");
                     break;
                 case 3:
-                    feedbackText.setText("Wrong! dicks3");
+                    feedbackText.setText("Wrong! Specific information about hierarchy is critical.");
                     break;
                 case 4:
-                    feedbackText.setText("Wrong! nunus4");
+                    feedbackText.setText("Wrong! This needs more information about hierarchy.");
                     break;
                 case 5:
-                    feedbackText.setText("Wrong! pussycat5");
+                    feedbackText.setText("Wrong! It is important to be specific about your thoughts.");
                     break;
                 case 6:
-                    feedbackText.setText("Wrong! vuvuzela6");
+                    feedbackText.setText("Wrong! This example is lacking in specificity.");
                     break;
             }
         }
@@ -148,34 +151,16 @@ public class CritiqueTest extends Activity {
             buttons[i].setClickable(false);
         }
 
-
         final Animation in = new AlphaAnimation(0.0f, 1.0f);
         in.setDuration(500);
+
         final Animation in2 = new AlphaAnimation(0.0f, 1.0f);
         in2.setDuration(500);
 
         final Animation out = new AlphaAnimation(1.0f, 0.0f);
         out.setDuration(500);
 
-        out.setAnimationListener(new AnimationListener() {
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                feedbackText.setText("");
-                for(int i = 0; i < buttons.length; i++){
-                    buttons[i].setClickable(true);
-                }
-//                feedbackText.startAnimation(in);
-                getNewQuestion();
-                questionTextView.startAnimation(in2);
-
-
-            }
-            public void onAnimationRepeat(Animation animation){}
-            public void onAnimationStart(Animation animation){}
-        });
         in.setAnimationListener(new AnimationListener() {
-
             @Override
             public void onAnimationEnd(Animation animation) {
             //timeout for 3 seconds, then getNewQuestion()
@@ -187,17 +172,33 @@ public class CritiqueTest extends Activity {
                                 questionTextView.startAnimation(out);
                             }
                         },
-                        3000);
+                        2000);
             }
             public void onAnimationRepeat(Animation animation){}
             public void onAnimationStart(Animation animation){}
         });
 
+        out.setAnimationListener(new AnimationListener() {
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                feedbackText.setText("");
+                if(correctCount >= 6){
+                    //go to screen congratulating for completing the unit and allowing user to go back to main screen.
+                    Intent intent = new Intent(getApplicationContext(), CritiqueFinish.class);
+                    startActivity(intent);
+                }
+                else {
+                    for (int i = 0; i < buttons.length; i++) {
+                        buttons[i].setClickable(true);
+                    }
+                    getNewQuestion();
+                    questionTextView.startAnimation(in2);
+                }
+            }
+            public void onAnimationRepeat(Animation animation){}
+            public void onAnimationStart(Animation animation){}
+        });
 
         feedbackText.startAnimation(in);
-
-
-
-
     }
 }
