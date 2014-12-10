@@ -38,4 +38,23 @@ public class MainActivity extends Activity {
 		Intent intent = new Intent(this, CritiqueActivity.class);
 		startActivity(intent);
 	}
+	public void colorAssociations(View view){
+		Intent intent = new Intent(this, ColorAssociations.class);
+		startActivity(intent);
+	}
+
+	public void personalAssociations(View view){
+		Intent intent = new Intent(this, PersonalAssociations.class);
+		startActivity(intent);
+	}
+
+	public void basicConcepts(View view){
+		Intent intent = new Intent(this, BasicConcepts.class);
+		startActivity(intent);
+	}
+
+	public void colorSchemes(View view){
+		Intent intent = new Intent(this, ColorSchemes.class);
+		startActivity(intent);
+	}
 }

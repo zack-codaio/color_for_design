@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                tools:context="edu.cmu.zaman.colorintent.CritiqueActivity" >
+
+    <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:text="What are Personal Associations?"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView1"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="16dp"
+            android:text="Personal associations are things and feelings that come to mind when you see a color.  They can be whatever you think of first-- there's no right or wrong answer." />
+    <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView1"
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="16dp"
+            android:text="Personal associations are powerful because your users' initial reactions will be based on their associations, It's important to free associate and anticipate possible first impressions that your color usage will generate." />
+
+
+
+    <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="next"
+            android:text="NEXT" android:background="#FA8309" android:textColor="#fff"
+            android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
+            android:paddingRight="40dp" android:paddingLeft="40dp"/>
+
+</RelativeLayout>
