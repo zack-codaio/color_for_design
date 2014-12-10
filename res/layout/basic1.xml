@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text=" Hue can be understood as the name of a color, e.g., red, purple, blue, etc."
+            android:id="@+id/textView16" android:layout_alignParentTop="true" android:layout_centerHorizontal="true"
+            android:padding="20dp" android:textSize="18dp"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView13" android:layout_centerVertical="true" android:layout_alignParentLeft="true"
+            android:src="@drawable/hue_group" android:padding="10dp"/>
+
+    <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="next"
+            android:text="NEXT" android:background="#FA8309" android:textColor="#fff"
+            android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
+            android:paddingRight="40dp"
+            android:paddingLeft="40dp"
+            android:layout_marginBottom="15dp"
+            />
+
+</RelativeLayout>
+

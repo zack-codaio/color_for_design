@@ -2,10 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+
     tools:context="edu.cmu.zaman.colorintent.MainActivity" >
 
     <LinearLayout
+            android:background="#fffd4fff"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
@@ -13,41 +14,50 @@
         android:orientation="vertical" >
 
         <TableRow
+                android:background="#ff99ff65"
             android:id="@+id/tableRow1"
             android:layout_width="match_parent"
             android:layout_height="match_parent" 
             android:layout_weight="1"
             android:padding="20dp"
+                android:onClick="basicConcepts"
             
             >
-            
+
+            <ImageView android:layout_width="51dp" android:layout_height="fill_parent" android:id="@+id/imageView12"
+                       android:src="@drawable/bucket"/>
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:text="1. Basic Concepts" />
+                android:text="Basic Concepts" android:layout_marginLeft="10dp"/>
 
         </TableRow>
 
         <TableRow
+                android:background="#ff55ff64"
             android:id="@+id/tableRow2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+                android:onClick="colorSchemes"
             android:padding="20dp"
             >
 
+            <ImageView android:layout_width="51dp" android:layout_height="fill_parent" android:id="@+id/imageView11"
+                       android:src="@drawable/palette"/>
             <TextView
                 android:id="@+id/textView2"
-                android:text="2. Color Schemes" 
+                android:text="Color Schemes"
                 android:layout_width="match_parent"
         		android:layout_height="match_parent"
         		android:gravity="center_vertical"
-                />
+                android:layout_marginLeft="10dp"/>
         </TableRow>
 
         <TableRow
+                android:background="#ff41ffbe"
             android:id="@+id/tableRow3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -55,13 +65,15 @@
             android:padding="20dp"
             >
 
+            <ImageView android:layout_width="51dp" android:layout_height="fill_parent" android:id="@+id/imageView10"
+                       android:src="@drawable/hierarchy"/>
             <TextView
                 android:id="@+id/textView3"
-                android:text="3. Information Hierarchy" 
+                android:text="Information Hierarchy"
                 android:layout_width="match_parent"
       			android:layout_height="match_parent"
       			android:gravity="center_vertical"
-                />
+                android:layout_marginLeft="10dp"/>
         </TableRow>
 
         <TableRow
@@ -69,32 +81,65 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+
+            android:onClick="colorAssociations"
+            android:weightSum="1"
+            android:background="#ff5bd6ff"
             android:padding="20dp">
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-        		android:layout_height="match_parent"
-        		android:gravity="center_vertical"
-        		android:text="4. Color Associations" 
-        		/>
+                <ImageView
+                        android:layout_width="51dp"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/imageView8" android:src="@drawable/people"/>
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="Cultural Associations"
+                    android:layout_marginLeft="10dp"/>
+
         </TableRow>
 
         <TableRow
-            android:id="@+id/tableRow5"
+                android:id="@+id/tableRow5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:weightSum="1"
+                android:background="#ff9385ff"
+                android:padding="20dp" android:onClick="personalAssociations">
+
+
+                <ImageView android:layout_width="51dp" android:layout_height="fill_parent" android:id="@+id/imageView9"
+                           android:src="@drawable/person"/>
+                <TextView android:id="@+id/textView12" android:layout_width="match_parent" android:layout_height="match_parent"
+                          android:gravity="center_vertical" android:text="Personal Associations"
+                          android:layout_marginLeft="10dp"/>
+        </TableRow>
+
+        <TableRow
+                android:background="#fffd4fff"
+            android:id="@+id/tableRow6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="20dp"
             android:onClick="startCritique"
-            >
 
+            android:weightSum="1">
+
+            <ImageView
+                    android:layout_width="51dp"
+                    android:layout_height="fill_parent"
+                    android:id="@+id/imageView7" android:src="@drawable/levitation"/>
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
         		android:layout_height="match_parent"
         		android:gravity="center_vertical"
-        		android:text="5. Critique"/>
+        		android:text="Critique" android:layout_marginLeft="10dp"/>
         </TableRow>
     </LinearLayout>
 

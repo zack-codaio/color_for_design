@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView13"
+                    android:src="@drawable/warm_cold" android:padding="10dp" android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Cool Colors - Blue, green and purple (violet) are considered cool colors. They give an impression of calm, and create a soothing impression.These colors are considered cool because, again, they remind of us thing in nature that are cool, like water or grass.
+"
+                    android:id="@+id/textView16"
+                    android:padding="20dp" android:textSize="18dp"
+                    android:layout_below="@+id/imageView13" android:layout_alignParentLeft="true"/>
+            <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    >
+                <Button android:id="@+id/button" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:onClick="back" android:text="BACK"
+                        android:background="#FA8309" android:textColor="#fff" android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true" android:paddingRight="40dp" android:paddingLeft="40dp"
+                        android:layout_marginBottom="15dp"
+                        android:gravity="center"
+                        android:layout_marginRight="15dp"
+                        />
+                <Button
+                        android:id="@+id/button1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="next"
+                        android:text="NEXT" android:background="#FA8309" android:textColor="#fff"
+                        android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="15dp"
+                        android:paddingRight="40dp"
+                        android:paddingLeft="40dp"
+                        android:layout_marginBottom="15dp"
+                        android:gravity="center"
+                        />
+            </TableRow>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
+
